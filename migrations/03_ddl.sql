@@ -47,16 +47,6 @@ CREATE TABLE
 	);
 
 CREATE TABLE
-	sellers (
-		id SERIAL PRIMARY KEY,
-		first_name varchar(50),
-		last_name varchar(50),
-		email varchar(50),
-		postal_code varchar(50),
-		country_id INT REFERENCES countries (id)
-	);
-
-CREATE TABLE
 	stores (
 		id SERIAL PRIMARY KEY,
 		name varchar(50),
@@ -66,6 +56,17 @@ CREATE TABLE
 		email varchar(50),
 		country_id INT REFERENCES countries (id),
 		city_id INT REFERENCES cities (id)
+	);
+
+CREATE TABLE
+	sellers (
+		id SERIAL PRIMARY KEY,
+		first_name varchar(50),
+		last_name varchar(50),
+		email varchar(50),
+		postal_code varchar(50),
+		country_id INT REFERENCES countries (id),
+		store_id INT REFERENCES stores (id)
 	);
 
 CREATE TABLE
